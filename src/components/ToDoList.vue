@@ -8,63 +8,63 @@
       <li v-for="(task, index) in tasks" :key="index">
         {{ task }}
         <!-- 當使用者點擊刪除按鈕時觸發 removeTask 方法 -->
-        <button @click="removeTask(index)">刪除</button>
+        <el-button type="danger" icon="el-icon-delete" circle @click="removeTask(index)"></el-button>
       </li>
     </ul>
   </div>
 </template>
 <script>
-export default {
-  data() {
-    return {
-      newTask: '',
-      tasks: []  // 建立 tasks 陣列
-    };
-  },
-  methods: {
-    addTask() {
-      if (this.newTask.trim()) {  // 檢查 newTask 是否為空字串
-        this.tasks.push(this.newTask.trim());  // 將 newTask 加入 tasks 陣列中
-        this.newTask = '';  // 清空 newTask 變數
-      }
+  export default {
+    data() {
+      return {
+        newTask: '',
+        tasks: [] // 建立 tasks 陣列
+      };
     },
-    removeTask(index) {
-      this.tasks.splice(index, 1);  // 從 tasks 陣列中刪除指定索引的項目
+    methods: {
+      addTask() {
+        if (this.newTask.trim()) { // 檢查 newTask 是否為空字串
+          this.tasks.push(this.newTask.trim()); // 將 newTask 加入 tasks 陣列中
+          this.newTask = ''; // 清空 newTask 變數
+        }
+      },
+      removeTask(index) {
+        this.tasks.splice(index, 1); // 從 tasks 陣列中刪除指定索引的項目
+      }
     }
-  }
-};
+  };
 </script>
 <style scoped>
-#customer-support-todo-list {
-  max-width: 500px;
-  margin: 0 auto;
-}
+  #customer-support-todo-list {
+    max-width: 500px;
+    margin: 0 auto;
+  }
 
-input {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-}
+  input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+  }
 
-ul {
-  padding: 0;
-}
+  ul {
+    padding: 0;
+  }
 
-li {
-  list-style-type: none;
-  background-color: #f3f3f3;
-  padding: 10px;
-  margin-bottom: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+  li {
+    list-style-type: none;
+    background-color: #f3f3f3;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-button {
-  background-color: red;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-}
+  button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
 </style>
